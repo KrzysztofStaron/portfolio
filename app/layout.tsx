@@ -2,6 +2,7 @@ import type React from "react";
 import "@/app/globals.css";
 import { Mona_Sans as FontSans } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/react";
 
 import { cn } from "@/lib/utils";
 
@@ -24,6 +25,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Analytics />
+      </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable, fontHeading.variable)}>
         {children}
       </body>
