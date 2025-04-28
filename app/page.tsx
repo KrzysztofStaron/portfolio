@@ -1,229 +1,190 @@
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
-
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import ProjectCard from "@/components/project-card";
-import TraitCard from "@/components/trait-card";
+import { Github, Download, ExternalLink, X } from "lucide-react";
+import { ProjectsSection } from "@/components/ProjectsSection";
 
 export default function Portfolio() {
   return (
-    <div className="flex min-h-screen flex-col bg-bl">
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-          <div className="flex gap-6 md:gap-10">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="inline-block font-bold">PORTFOLIO</span>
+    <div className="flex flex-col bg-gray-950 text-gray-100">
+      <header className="sticky h-16 top-0 flex justify-between z-40 w-screen border-b border-gray-800 bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-gray-950/60">
+        <Link href="/" className="flex items-center space-x-2">
+          <span className="font-bold text-xl tracking-tight text-white pl-4">KRZYSZTOF</span>
+        </Link>
+        <div className="flex items-center gap-4 mr-5">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            <Link href="#about" className="text-gray-300 transition-colors hover:text-orange-500">
+              About
             </Link>
-          </div>
-          <div className="flex flex-1 items-center justify-end space-x-4">
-            <nav className="flex items-center space-x-1">
-              <Link href="#projects" className="px-4 py-2 text-sm font-medium">
-                Projects
-              </Link>
-              <Link href="#about" className="px-4 py-2 text-sm font-medium">
-                About
-              </Link>
-              <Link href="#contact" className="px-4 py-2 text-sm font-medium">
-                Contact
-              </Link>
-              <Button size="sm">Resume</Button>
-            </nav>
-          </div>
+            <Link href="#projects" className="text-gray-300 transition-colors hover:text-orange-500">
+              Projects
+            </Link>
+            <Link href="#contact" className="text-gray-300 transition-colors hover:text-orange-500">
+              Contact
+            </Link>
+          </nav>
+          <a href="/resume.pdf" download="Krzysztof_Staron_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Button size="sm" className="gap-2 bg-orange-600 hover:bg-orange-700 text-white">
+              <Download className="h-4 w-4" />
+              Resume
+            </Button>
+          </a>
         </div>
       </header>
+
       <main className="flex-1">
-        <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 ">
-          <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-            <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-              Building the <span className="text-primary">future</span>, one project at a time
-            </h1>
-            <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-              I'm a developer who pushes boundaries and turns visions into reality. Relentless in pursuit, resilient
-              under pressure.
-            </p>
-            <div className="space-x-4">
-              <Button className="px-8" asChild>
-                <Link href="#projects">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" className="px-8" asChild>
-                <Link href="#contact">Contact Me</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-        <section id="traits" className="container space-y-6 py-8 md:py-12 lg:py-24">
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-5xl">What Drives Me</h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              These core traits define my approach to work and life
-            </p>
-          </div>
-          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-4">
-            <TraitCard
-              title="Relentless"
-              description="I push forward no matter what, even when facing challenges."
-              icon="ArrowRight"
-            />
-            <TraitCard
-              title="Visionary"
-              description="Always thinking ahead, building things that shape the future."
-              icon="Lightbulb"
-            />
-            <TraitCard
-              title="Charismatic"
-              description="People are drawn to my ideas and believe in my vision."
-              icon="Users"
-            />
-            <TraitCard
-              title="Resilient"
-              description="No matter the pressure or setbacks, I keep going."
-              icon="Shield"
-            />
-          </div>
-        </section>
-        <section id="projects" className="container space-y-6 py-8 md:py-12 lg:py-24">
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-5xl">Featured Projects</h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              A showcase of my recent work and ongoing projects
-            </p>
-          </div>
-          <div className="mx-auto grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <ProjectCard
-              title="Project Alpha"
-              description="A cutting-edge platform that revolutionizes how users interact with data."
-              tags={["React", "Node.js", "MongoDB"]}
-              image="/placeholder.svg?height=400&width=600"
-            />
-          </div>
-          <div className="flex justify-center">
-            <Button variant="outline" size="lg">
-              View All Projects <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-        </section>
-        <section id="about" className="container space-y-6 bg-slate-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 space-y-4 text-center">
-            <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-5xl">About Me</h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              I'm a passionate developer and innovator with a drive to create meaningful technology
-            </p>
-            <div className="mx-auto max-w-3xl space-y-4 text-left">
-              <p>
-                My journey in technology began with a simple curiosity that evolved into an unrelenting passion. As
-                someone who embodies relentlessness, I push forward through challenges, viewing obstacles as
-                opportunities for growth rather than roadblocks.
-              </p>
-              <p>
-                Being visionary means I'm constantly looking ahead, anticipating trends and building solutions that
-                address not just current needs, but future ones as well. I believe technology should be forward-thinking
-                and purposeful.
-              </p>
-              <p>
-                My charismatic approach to collaboration has allowed me to build strong relationships with clients and
-                teammates. I believe that the best projects come from passionate teams who believe in what they're
-                creating.
-              </p>
-              <p>
-                Resilience defines my work ethic. In the ever-changing landscape of technology, being able to adapt,
-                learn, and persevere through challenges is essential. No matter the pressure or setbacks, I remain
-                committed to delivering excellence.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section id="contact" className="container space-y-6 py-8 md:py-12 lg:py-24">
-          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-            <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-5xl">Let's Connect</h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-              Have a project in mind or want to discuss opportunities? Reach out!
-            </p>
-          </div>
-          <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold">Get in Touch</h3>
-              <p className="text-muted-foreground">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Mail className="h-5 w-5" />
-                  <span>hello@example.com</span>
+        <section id="about" className="py-5 md:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8 order-2 md:order-1">
+                <div className="space-y-4">
+                  <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
+                    Hello, I'm <span className="text-orange-500">Krzysztof</span> 👋
+                  </h1>
+                  <div className="flex space-x-4 mt-4">
+                    <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full text-gray-300 hover:text-orange-500 hover:bg-gray-800"
+                      >
+                        <Github className="h-5 w-5" />
+                        <span className="sr-only">GitHub</span>
+                      </Button>
+                    </Link>
+                    <Link href="https://x.com/PanzerBread" target="_blank" rel="noopener noreferrer">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full text-gray-300 hover:text-orange-500 hover:bg-gray-800"
+                      >
+                        <X className="h-5 w-5" />
+                        <span className="sr-only">X</span>
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Twitter className="h-5 w-5" />
-                  <span>@username</span>
+
+                <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
+                  <p>
+                    I'm a builder - I get depressed when I don't move forward. I don't believe I'm the best developer in
+                    the world, but I believe in <span className="text-orange-500 font-medium">relentless progress</span>
+                    .
+                  </p>
+
+                  <p>
+                    I wrote my first lines of code in <span className="text-orange-500 font-medium">2018</span>, when I
+                    was 11 years old. Before that, I was always searching for a medium to solve problems first it was
+                    math, and then coding became exactly that. Since then, I've been learning, building, and most of the
+                    time failing.
+                  </p>
+
+                  <p>Along the way, mentors helped me to find the direction that I'm passionate about.</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Linkedin className="h-5 w-5" />
-                  <span>linkedin.com/in/username</span>
+
+                <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
+                  <p>
+                    I build SaaS, muscles and strength, optimize my body and mind, and document the process in public.
+                  </p>
+
+                  <p>
+                    I'm especially interested in biohacking, sports, and frontier of technology, and I dream of pushing
+                    humanity forward.
+                  </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Github className="h-5 w-5" />
-                  <span>github.com/username</span>
+
+                <p className="text-lg font-medium border-l-4 border-orange-500 pl-4 py-2 bg-orange-950/30 rounded-r text-gray-100">
+                  Every project I ship is another step toward a larger goal: making research and opportunities
+                  accessible to everyone, supporting breakthrough technologies, and helping bring humanity closer to the
+                  stars. I put everything I have into my work - because without the mission, I am nothing.
+                </p>
+              </div>
+
+              <div className="flex justify-center md:justify-end order-1 md:order-2">
+                <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-orange-500/20 shadow-xl shadow-orange-900/20 transition-transform hover:scale-[1.02] duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/20 to-transparent z-10"></div>
+                  <Image src="/images/me-cropped.jpg" alt="Krzysztof" fill className="object-cover" priority />
                 </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <form className="space-y-4">
-                <div className="grid gap-2">
-                  <label htmlFor="name" className="text-sm font-medium leading-none">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your name"
+          </div>
+        </section>
+
+        <ProjectsSection />
+
+        <section className="py-20 bg-gray-950 w-screen flex justify-center">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">Proof I train</h2>
+              <p className="text-gray-300 max-w-[600px] text-lg italic">"Maybe thirst-traps bring job offers"</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {["back.jpg", "front.jpg", "back_right.jpg"].map(photo => (
+                <div
+                  key={photo}
+                  className="group relative aspect-square overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-md transition-all hover:shadow-lg hover:shadow-orange-900/10"
+                >
+                  <Image
+                    src={`/images/${photo}`}
+                    alt={`Fitness photo ${photo}`}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105 duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p className="text-white font-medium">I lift weights</p>
+                  </div>
                 </div>
-                <div className="grid gap-2">
-                  <label htmlFor="email" className="text-sm font-medium leading-none">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your email"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="message" className="text-sm font-medium leading-none">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your message"
-                  />
-                </div>
-                <Button className="w-full">Send Message</Button>
-              </form>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-gray-300 mb-6 max-w-[600px] mx-auto">
+                Beyond coding, I'm committed to physical fitness and self-improvement.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="py-20 bg-gray-950 w-screen flex justify-center">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-[800px] mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">Get In Touch</h2>
+              <p className="text-gray-300 mb-8">Just say something like "hello", I'll be happy, I love you all.</p>
+
+              <p className="text-gray-300 mb-8">k.staron314@gmail.com</p>
+              <p className="text-gray-300 mb-8">
+                <a href="https://x.com/PanzerBread" target="_blank" rel="noopener noreferrer">
+                  @PanzerBread
+                </a>
+              </p>
             </div>
           </div>
         </section>
       </main>
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} Portfolio. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link href="#" className="text-muted-foreground hover:text-foreground">
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground">
-              <Github className="h-5 w-5" />
+
+      <footer className="border-t border-gray-800 py-2 bg-gray-950 w-screen flex justify-center">
+        <div className="grid grid-cols-2 gap-10 w-min">
+          <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8 rounded-full text-gray-400 hover:text-orange-500 hover:bg-gray-800"
+            >
+              <Github className="h-4 w-4" />
               <span className="sr-only">GitHub</span>
-            </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground">
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-          </div>
+            </Button>
+          </Link>
+          <Link href="https://x.com/PanzerBread" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8 rounded-full text-gray-400 hover:text-orange-500 hover:bg-gray-800"
+            >
+              <X className="h-4 w-4" />
+              <span className="sr-only">X</span>
+            </Button>
+          </Link>
         </div>
       </footer>
     </div>
