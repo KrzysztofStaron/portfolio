@@ -49,17 +49,6 @@ export function ProjectCard({
             </span>
           ))}
         </div>
-        <div className="flex justify-between items-center">
-          <Link
-            href={projectUrl}
-            className="text-sm font-medium text-orange-500 hover:text-orange-400 inline-flex items-center gap-1"
-          >
-            View Project <ExternalLink className="h-3 w-3" />
-          </Link>
-          <Link href={githubUrl} className="text-sm text-gray-400 hover:text-white">
-            <Github className="h-4 w-4" />
-          </Link>
-        </div>
       </div>
     </div>
   );
