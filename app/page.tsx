@@ -142,6 +142,28 @@ export default function Portfolio() {
               <p className="text-gray-300 mb-6 max-w-[600px] mx-auto">
                 Beyond coding, I'm committed to physical fitness and self-improvement.
               </p>
+              <div className="mb-4 flex items-center justify-between">
+                <p className="text-gray-300">
+                  Bench: <strong className="text-orange-500">85kg</strong>
+                </p>
+                <div className="relative w-1/2 h-2 bg-gray-700 rounded">
+                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "85%" }}></div>
+                </div>
+                <p className="text-gray-300 text-sm">
+                  Goal: <strong className="text-orange-500">100kg</strong>
+                </p>
+              </div>
+              <div className="mb-4 flex items-center justify-between">
+                <p className="text-gray-300">
+                  Squat: <strong className="text-orange-500">110kg</strong>
+                </p>
+                <div className="relative w-1/2 h-2 bg-gray-700 rounded">
+                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "78.57%" }}></div>
+                </div>
+                <p className="text-gray-300 text-sm">
+                  Goal: <strong className="text-orange-500">140kg</strong>
+                </p>
+              </div>
             </div>
           </div>
         </section>
