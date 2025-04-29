@@ -11,7 +11,7 @@ interface Project {
   githubUrl: string;
   image: string;
   headline: string;
-  y_offset?: number;
+  link?: string;
 }
 
 const projects: Project[] = [
@@ -24,6 +24,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     image: "/images/focus_loop.jpg",
     headline: "SaaS",
+    link: "https://www.producthunt.com/products/focus-loop",
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     image: "/images/PlantsAndMeteorites.jpg",
     headline: "Game Development",
+    link: "https://github.com/KrzysztofStaron/PlantsAndMeteorites",
   },
   {
     id: 3,
@@ -44,6 +46,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     image: "/images/calc.jpg",
     headline: "Electronics",
+    link: "https://github.com/KrzysztofStaron/GamingCalculator",
   },
 ];
 

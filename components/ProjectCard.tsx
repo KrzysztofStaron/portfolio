@@ -7,24 +7,11 @@ interface ProjectCardProps {
   title: string;
   description: string;
   technologies: string[];
-  projectUrl: string;
-  githubUrl: string;
   image: string;
-  headline: string;
-  y_offset?: number;
+  link?: string;
 }
 
-export function ProjectCard({
-  id,
-  title,
-  description,
-  technologies,
-  projectUrl,
-  githubUrl,
-  image,
-  headline,
-  y_offset = 0,
-}: ProjectCardProps) {
+export function ProjectCard({ id, title, description, technologies, image, link }: ProjectCardProps) {
   return (
     <div className="group relative overflow-hidden rounded-lg border border-gray-800 bg-gray-950 shadow-md transition-all hover:shadow-lg hover:shadow-orange-900/10 hover:border-gray-700">
       <div className="aspect-video w-full overflow-hidden bg-gray-800">
@@ -33,10 +20,10 @@ export function ProjectCard({
           alt={`Project ${id}`}
           width={600}
           height={400}
-          className={`object-cover transition-transform group-hover:scale-105 duration-300 translate-y-[${y_offset}px]`}
+          className={`object-cover transition-transform group-hover:scale-105 duration-300`}
         />
       </div>
-      <div className="p-6">
+      <div className="p-6 flex flex-col">
         <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
         <p className="text-gray-300 mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
@@ -49,6 +36,15 @@ export function ProjectCard({
             </span>
           ))}
         </div>
+        {link && (
+          <Link
+            href={link}
+            target="_blank"
+            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gray-300"
+          >
+            View Project <ExternalLink className="h-4 w-4" />
+          </Link>
+        )}
       </div>
     </div>
   );
