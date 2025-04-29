@@ -74,7 +74,7 @@ export default function Portfolio() {
 
                   <p>
                     I wrote my first lines of code in <span className="text-orange-500 font-medium">2018</span>, when I
-                    was 11 years old. Before that, I was always searching for a medium to solve problems first it was
+                    was 11 years old. Before that, I was always searching for a medium to solve problems, first it was
                     math, and then coding became exactly that. Since then, I've been learning, building, and most of the
                     time failing.
                   </p>
