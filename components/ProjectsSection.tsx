@@ -28,7 +28,7 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Plants And Meteorites",
-    description: "A brief description of this project and the technologies used to build it.",
+    description: "A stardew valley inspired game I was developing years ago.",
     technologies: ["Godot", "Game Development", "Team Management"],
     projectUrl: "#",
     githubUrl: "https://github.com",
@@ -38,7 +38,7 @@ const projects: Project[] = [
   {
     id: 3,
     title: "Gaming Calculator",
-    description: "A brief description of this project and the technologies used to build it.",
+    description: "Arduino based game console with custom operating system.",
     technologies: ["Arduino", "C++", "Operating System"],
     projectUrl: "#",
     githubUrl: "https://github.com",
