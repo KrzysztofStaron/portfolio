@@ -2,50 +2,34 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 
-interface Project {
-  id: number;
+export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  projectUrl: string;
-  githubUrl: string;
   image: string;
-  headline: string;
   link?: string;
 }
 
 const projects: Project[] = [
   {
-    id: 1,
     title: "Focus Loop",
     description: "Environment for self-improvement - curated videos based on your personality",
     technologies: ["Recomendation System", "Model finetuning", "Vector Database"],
-    projectUrl: "#",
-    githubUrl: "https://github.com",
     image: "/images/focus_loop.jpg",
-    headline: "SaaS",
     link: "https://www.producthunt.com/products/focus-loop",
   },
   {
-    id: 2,
     title: "Plants And Meteorites",
     description: "A stardew valley inspired game I was developing years ago.",
     technologies: ["Godot", "Game Development", "Team Management"],
-    projectUrl: "#",
-    githubUrl: "https://github.com",
     image: "/images/PlantsAndMeteorites.jpg",
-    headline: "Game Development",
     link: "https://github.com/KrzysztofStaron/PlantsAndMeteorites",
   },
   {
-    id: 3,
     title: "Gaming Calculator",
     description: "Arduino based game console with custom operating system.",
     technologies: ["Arduino", "C++", "Operating System"],
-    projectUrl: "#",
-    githubUrl: "https://github.com",
     image: "/images/calc.jpg",
-    headline: "Electronics",
     link: "https://github.com/KrzysztofStaron/GamingCalculator",
   },
 ];
@@ -60,8 +44,8 @@ export function ProjectsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map(project => (
-            <ProjectCard key={project.id} {...project} />
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
           ))}
         </div>
 

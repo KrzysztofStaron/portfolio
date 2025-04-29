@@ -1,6 +1,18 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github, X, Download } from "lucide-react";
+import { Project } from "@/components/ProjectsSection";
+import { ProjectCard } from "@/components/ProjectCard";
+
+const projects: Project[] = [
+  {
+    title: "Beekeeper",
+    description: "Cheating tool for Wocabee",
+    technologies: ["Puppeteer", "Google Cloud Run", "SEO"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://wocabee-bot-beta.vercel.app/",
+  },
+];
 
 export default function More() {
   return (
@@ -43,6 +55,14 @@ export default function More() {
           </div>
         </section>
       </main>
+
+      {/*
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </div>
+      */}
 
       <footer className="border-t border-gray-800 py-2 bg-gray-950 w-screen flex justify-center">
         <div className="grid grid-cols-2 gap-10 w-min">

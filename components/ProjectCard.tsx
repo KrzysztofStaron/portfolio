@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 
 interface ProjectCardProps {
-  id: number;
   title: string;
   description: string;
   technologies: string[];
@@ -11,13 +10,13 @@ interface ProjectCardProps {
   link?: string;
 }
 
-export function ProjectCard({ id, title, description, technologies, image, link }: ProjectCardProps) {
+export function ProjectCard({ title, description, technologies, image, link }: ProjectCardProps) {
   return (
     <div className="group relative overflow-hidden rounded-lg border border-gray-800 bg-gray-950 shadow-md transition-all hover:shadow-lg hover:shadow-orange-900/10 hover:border-gray-700">
       <div className="aspect-video w-full overflow-hidden bg-gray-800">
         <Image
           src={`${image}`}
-          alt={`Project ${id}`}
+          alt={`Project ${title}`}
           width={600}
           height={400}
           className={`object-cover transition-transform group-hover:scale-105 duration-300`}
