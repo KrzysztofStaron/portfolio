@@ -140,7 +140,7 @@ export default function Portfolio() {
 
             <div className="mt-12 text-center">
               <p className="text-gray-300 mb-6 max-w-[600px] mx-auto">
-                Beyond coding, I'm committed to physical fitness and self-improvement.
+                Beyond coding, I'm committed to fitness and self-improvement.
               </p>
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-gray-300">
