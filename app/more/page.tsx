@@ -12,6 +12,55 @@ const projects: Project[] = [
     image: "/placeholder.svg?height=400&width=600",
     link: "https://wocabee-bot-beta.vercel.app/",
   },
+  {
+    title: "Teacher's voting",
+    description: "Platform for voting for teachers",
+    technologies: ["Toast", "Firestore"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://lo-strzelin.vercel.app/",
+  },
+  {
+    title: "You are alive",
+    description: "Platform for sharing reflections",
+    technologies: ["Next.js"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://you-are-alive.vercel.app/",
+  },
+  {
+    title: "Theme generator",
+    description: "Website that changes theme based on image you provide",
+    technologies: ["AI", "Image processing"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://theme-generator-indol.vercel.app/",
+  },
+  {
+    title: "Thrive Pages",
+    description: "Daily reflections, nofap tracker, and todo list",
+    technologies: ["Firestore"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://thrive-pages.vercel.app/",
+  },
+  {
+    title: "Communicator",
+    description: "Chatapp with themes and dms",
+    technologies: ["Firestore"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://communicator-app.vercel.app/",
+  },
+  {
+    title: "QR code manager",
+    description: "QR code manager",
+    technologies: ["Firebase"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://qrcode-app-topaz.vercel.app/",
+  },
+  {
+    title: "Windowed todo app",
+    description: "Todo app built with custom window manager",
+    technologies: ["JS"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://windowed-todo-app.vercel.app/",
+  },
 ];
 
 export default function More() {
@@ -40,6 +89,14 @@ export default function More() {
         </div>
       </header>
 
+      <section id="projects" className="py-20 bg-gray-900 w-screen flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+      </section>
+
       <main className="flex-1">
         <section className="py-5 md:py-32">
           <div className="container px-4 md:px-6">
@@ -55,14 +112,6 @@ export default function More() {
           </div>
         </section>
       </main>
-
-      {/*
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
-      </div>
-      */}
 
       <footer className="border-t border-gray-800 py-2 bg-gray-950 w-screen flex justify-center">
         <div className="grid grid-cols-2 gap-10 w-min">
