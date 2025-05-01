@@ -36,8 +36,8 @@ const projects: Project[] = [
   {
     title: "Communicator",
     description: "Chatapp with themes and dms",
-    technologies: ["Firestore"],
-    image: "/placeholder.svg?height=400&width=600",
+    technologies: ["Realtime data", "Websockets"],
+    image: "/images/communication.jpg",
     link: "https://communicator-app.vercel.app/",
   },
   {
@@ -50,14 +50,14 @@ const projects: Project[] = [
   {
     title: "QR code manager",
     description: "QR code manager",
-    technologies: ["Firebase"],
+    technologies: ["Firebase", "Api"],
     image: "/placeholder.svg?height=400&width=600",
     link: "https://qrcode-app-topaz.vercel.app/",
   },
   {
     title: "Windowed todo app",
     description: "Todo app built with custom window manager",
-    technologies: ["JS"],
+    technologies: ["Redux"],
     image: "/placeholder.svg?height=400&width=600",
     link: "https://windowed-todo-app.vercel.app/",
   },
