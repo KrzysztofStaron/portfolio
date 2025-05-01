@@ -9,21 +9,21 @@ const projects: Project[] = [
     title: "Beekeeper",
     description: "Cheating tool for Wocabee",
     technologies: ["Puppeteer", "Google Cloud Run", "SEO"],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/beekeeper.jpg",
     link: "https://wocabee-bot-beta.vercel.app/",
   },
   {
     title: "Teacher's voting",
     description: "Platform for voting for teachers",
     technologies: ["Toast", "Firestore"],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/voting.png",
     link: "https://lo-strzelin.vercel.app/",
   },
   {
     title: "You are alive",
     description: "Platform for sharing reflections",
     technologies: ["Next.js"],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/alive.png",
     link: "https://you-are-alive.vercel.app/",
   },
   {
@@ -37,7 +37,7 @@ const projects: Project[] = [
     title: "Thrive Pages",
     description: "Daily reflections, nofap tracker, and todo list",
     technologies: ["Firestore"],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/thrive_pages.png",
     link: "https://thrive-pages.vercel.app/",
   },
   {
@@ -60,6 +60,13 @@ const projects: Project[] = [
     technologies: ["JS"],
     image: "/placeholder.svg?height=400&width=600",
     link: "https://windowed-todo-app.vercel.app/",
+  },
+  {
+    title: "Way to Home",
+    description: "Game I made when I was 13",
+    technologies: ["C#", "Unity"],
+    image: "/placeholder.svg?height=400&width=600",
+    link: "https://way-to-home.vercel.app/",
   },
 ];
 
