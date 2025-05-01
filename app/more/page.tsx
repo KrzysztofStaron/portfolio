@@ -14,8 +14,8 @@ const projects: Project[] = [
   },
   {
     title: "Teacher's voting",
-    description: "Platform for voting for teachers",
-    technologies: ["Toast", "Firestore"],
+    description: "Platform for giving reviews to teachers, built it to promote my cheating tool",
+    technologies: ["Toast", "Firestore", "Lead Magnet"],
     image: "/images/voting.png",
     link: "https://lo-strzelin.vercel.app/",
   },
