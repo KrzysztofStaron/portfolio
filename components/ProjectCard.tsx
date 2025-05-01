@@ -20,6 +20,7 @@ export function ProjectCard({ title, description, technologies, image, link }: P
           width={600}
           height={400}
           className={`object-cover transition-transform group-hover:scale-105 duration-300`}
+          unoptimized={image.endsWith(".gif")}
         />
       </div>
       <div className="p-6 flex flex-col">

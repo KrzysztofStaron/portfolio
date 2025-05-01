@@ -20,6 +20,13 @@ const projects: Project[] = [
     link: "https://lo-strzelin.vercel.app/",
   },
   {
+    title: "Algo animation engine",
+    description: "Animation engine for algorithms and leetcode with built-in editor",
+    technologies: ["syntax highlighting", "animation", "code editing"],
+    image: "/images/visualizer.gif",
+    link: "https://github.com/KrzysztofStaron/algo-visualiser",
+  },
+  {
     title: "You are alive",
     description: "Platform for sharing reflections",
     technologies: ["Next.js"],
@@ -27,11 +34,11 @@ const projects: Project[] = [
     link: "https://you-are-alive.vercel.app/",
   },
   {
-    title: "Theme generator",
-    description: "Website that changes theme based on image you provide",
-    technologies: ["AI", "Image processing"],
+    title: "Communicator",
+    description: "Chatapp with themes and dms",
+    technologies: ["Firestore"],
     image: "/placeholder.svg?height=400&width=600",
-    link: "https://theme-generator-indol.vercel.app/",
+    link: "https://communicator-app.vercel.app/",
   },
   {
     title: "Thrive Pages",
@@ -39,13 +46,6 @@ const projects: Project[] = [
     technologies: ["Firestore"],
     image: "/images/thrive_pages.png",
     link: "https://thrive-pages.vercel.app/",
-  },
-  {
-    title: "Communicator",
-    description: "Chatapp with themes and dms",
-    technologies: ["Firestore"],
-    image: "/placeholder.svg?height=400&width=600",
-    link: "https://communicator-app.vercel.app/",
   },
   {
     title: "QR code manager",
