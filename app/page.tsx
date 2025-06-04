@@ -144,10 +144,10 @@ export default function Portfolio() {
               </p>
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-gray-300">
-                  Bench: <strong className="text-orange-500">85kg</strong>
+                  Bench: <strong className="text-orange-500">87.5kg</strong>
                 </p>
                 <div className="relative w-1/2 h-2 bg-gray-700 rounded">
-                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "85%" }}></div>
+                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "87.5%" }}></div>
                 </div>
                 <p className="text-gray-300 text-sm">
                   Goal: <strong className="text-orange-500">100kg</strong>
