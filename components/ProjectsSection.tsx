@@ -12,6 +12,14 @@ export interface Project {
 
 const projects: Project[] = [
   {
+    title: "AutoSniper",
+    description:
+      "AI-powered car search platform that aggregates listings from all major Polish automotive portals and provides intelligent analysis and recommendations via email.",
+    technologies: ["AI/ML", "Web Scraping", "Data Analysis", "Email Integration"],
+    image: "/images/AutoSniper.jpg",
+    link: "https://auto-sniper-mocha.vercel.app/?lang=en",
+  },
+  {
     title: "Focus Loop",
     description: "Environment for self-improvement - curated videos based on your personality",
     technologies: ["Recomendation System", "Model finetuning", "Vector Database"],
@@ -40,12 +48,12 @@ export function ProjectsSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">
-            These 3 projects summarize my journay
+            These 4 projects summarize my journey
           </h2>
-          <p className="text-gray-300 max-w-[600px]">SaaS, Games, Arduino</p>
+          <p className="text-gray-300 max-w-[600px]">AI/SaaS, Recommendation Systems, Games, Hardware</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
