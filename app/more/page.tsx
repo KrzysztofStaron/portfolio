@@ -66,7 +66,7 @@ const projects: Project[] = [
     description: "Game I made when I was 13",
     technologies: ["C#", "Unity"],
     image: "/placeholder.svg?height=400&width=600",
-    link: "https://way-to-home.vercel.app/",
+    link: "https://github.com/KrzysztofStaron/WayToHome",
   },
 ];
 
