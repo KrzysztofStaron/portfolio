@@ -42,7 +42,7 @@ export default function Portfolio() {
                     Hello, I'm <span className="text-orange-500">Krzysztof</span> 👋
                   </h1>
                   <div className="flex space-x-4 mt-4">
-                    <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
                       <Button
                         variant="ghost"
                         size="icon"
