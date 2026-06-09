@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Github, Download, ExternalLink, X } from "lucide-react";
+import { Github, ExternalLink, X } from "lucide-react";
 import { ProjectsSection } from "@/components/ProjectsSection";
 
 export default function Portfolio() {
@@ -23,12 +23,6 @@ export default function Portfolio() {
               Contact
             </Link>
           </nav>
-          <a href="/resume.pdf" download="Krzysztof_Staron_Resume.pdf" target="_blank" rel="noopener noreferrer">
-            <Button size="sm" className="gap-2 bg-orange-600 hover:bg-orange-700 text-white">
-              <Download className="h-4 w-4" />
-              Resume
-            </Button>
-          </a>
         </div>
       </header>
 
@@ -38,9 +32,13 @@ export default function Portfolio() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8 order-2 md:order-1">
                 <div className="space-y-4">
-                  <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
-                    Hello, I'm <span className="text-orange-500">Krzysztof</span> 👋
+                  <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+                    I get depressed when I don't{" "}
+                    <span className="text-orange-500">move forward</span>.
                   </h1>
+                  <p className="text-xl text-gray-400">
+                    Hello, I'm <span className="text-white font-medium">Krzysztof</span> 👋
+                  </p>
                   <div className="flex space-x-4 mt-4">
                     <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
                       <Button
@@ -67,9 +65,8 @@ export default function Portfolio() {
 
                 <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                   <p>
-                    I'm a builder - I get depressed when I don't move forward. I don't believe I'm the best developer in
-                    the world, but I believe in <span className="text-orange-500 font-medium">relentless progress</span>
-                    .
+                    I'm a builder. I don't believe I'm the best developer in the world, but I believe in{" "}
+                    <span className="text-orange-500 font-medium">relentless progress</span>.
                   </p>
 
                   <p>
