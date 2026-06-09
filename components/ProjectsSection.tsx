@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 
 export interface Project {
@@ -13,29 +11,28 @@ export interface Project {
 const projects: Project[] = [
   {
     title: "AutoSniper",
-    description:
-      "AI-powered car search platform that aggregates listings from all major Polish automotive portals and provides intelligent analysis and recommendations via email.",
+    description: "AI car search across Polish portals, smart recommendations delivered to your inbox.",
     technologies: ["AI/ML", "Web Scraping", "Data Analysis", "Email Integration"],
     image: "/images/AutoSniper.jpg",
     link: "https://auto-sniper-mocha.vercel.app/?lang=en",
   },
   {
     title: "Focus Loop",
-    description: "Environment for self-improvement - curated videos based on your personality",
-    technologies: ["Recomendation System", "Model finetuning", "Vector Database"],
+    description: "Environment for self-improvement. Curated videos based on your personality.",
+    technologies: ["Recommendation System", "Model Finetuning", "Vector Database"],
     image: "/images/focus_loop.jpg",
     link: "https://www.producthunt.com/products/focus-loop",
   },
   {
-    title: "Plants And Meteorites",
-    description: "A stardew valley inspired game I was developing years ago.",
-    technologies: ["Godot", "Game Development", "Team Management"],
-    image: "/images/PlantsAndMeteorites.jpg",
-    link: "https://github.com/KrzysztofStaron/PlantsAndMeteorites",
+    title: "graphai.one",
+    description: "Alternative UX for LLMs, where chat isn't linear.",
+    technologies: ["LLM", "Canvas UI", "Tool Calls"],
+    image: "/images/graphai.jpg",
+    link: "https://graphai.one",
   },
   {
     title: "Gaming Calculator",
-    description: "Arduino based game console with custom operating system.",
+    description: "Arduino-based game console with a custom operating system.",
     technologies: ["Arduino", "C++", "Operating System"],
     image: "/images/calc.jpg",
     link: "https://github.com/KrzysztofStaron/GamingCalculator",
@@ -44,27 +41,30 @@ const projects: Project[] = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-20 bg-gray-900 w-screen flex justify-center">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">
-            These 4 projects summarize my journey
+    <section id="projects" className="py-24 w-full border-t border-white/[0.05]">
+      <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
+        <div className="mb-16">
+          <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-3">Work</p>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
+            Some projects
           </h2>
-          <p className="text-gray-300 max-w-[600px]">AI/SaaS, Recommendation Systems, Games, Hardware</p>
+          <p className="text-gray-500 mt-3 max-w-md">AI/SaaS · Recommendation Systems · LLM UX · Hardware</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
         </div>
 
-        <div className="flex justify-center mt-12">
-          <Button variant="outline" className="gap-2 border-gray-700 text-gray-200 hover:bg-gray-800 hover:text-white">
-            <a href="/more" className="flex items-center gap-2">
-              View All Projects <ExternalLink className="h-4 w-4" />
-            </a>
-          </Button>
+        <div className="mt-12">
+          <a
+            href="/more"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-orange-400 transition-colors group"
+          >
+            View all projects
+            <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+          </a>
         </div>
       </div>
     </section>

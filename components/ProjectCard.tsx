@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -12,25 +12,26 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, technologies, image, link }: ProjectCardProps) {
   return (
-    <div className="group relative overflow-hidden rounded-lg border border-gray-800 bg-gray-950 shadow-md transition-all hover:shadow-lg hover:shadow-orange-900/10 hover:border-gray-700">
-      <div className="aspect-video w-full overflow-hidden bg-gray-800">
+    <div className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-orange-500/20 hover:bg-white/[0.035] transition-all duration-300">
+      <div className="aspect-video w-full overflow-hidden bg-white/5 relative">
         <Image
-          src={`${image}`}
+          src={image}
           alt={`Project ${title}`}
           width={600}
           height={400}
-          className={`object-cover transition-transform group-hover:scale-105 duration-300`}
+          className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-[1.04]"
           unoptimized={image.endsWith(".gif")}
         />
       </div>
-      <div className="p-6 flex flex-col">
-        <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-        <p className="text-gray-300 mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
+
+      <div className="p-5 flex flex-col flex-1">
+        <h3 className="text-base font-bold mb-1.5 text-white">{title}</h3>
+        <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-1">{description}</p>
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {technologies.map(tech => (
             <span
               key={tech}
-              className="inline-flex items-center rounded-full border border-gray-700 bg-gray-800 px-2.5 py-0.5 text-xs font-semibold text-gray-200"
+              className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-gray-400 tracking-wide"
             >
               {tech}
             </span>
@@ -40,9 +41,10 @@ export function ProjectCard({ title, description, technologies, image, link }: P
           <Link
             href={link}
             target="_blank"
-            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gray-300"
+            className="inline-flex items-center gap-1.5 text-xs text-gray-600 hover:text-orange-400 transition-colors group/link"
           >
-            View Project <ExternalLink className="h-4 w-4" />
+            View project
+            <ExternalLink className="h-3 w-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
           </Link>
         )}
       </div>

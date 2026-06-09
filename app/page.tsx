@@ -1,106 +1,91 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, X } from "lucide-react";
+import { Github, X, Mail } from "lucide-react";
 import { ProjectsSection } from "@/components/ProjectsSection";
 
 export default function Portfolio() {
   return (
-    <div className="flex flex-col bg-gray-950 text-gray-100">
-      <header className="sticky h-16 top-0 flex justify-between z-40 w-screen border-b border-gray-800 bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-gray-950/60">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-xl tracking-tight text-white pl-4">KRZYSZTOF</span>
+    <div className="flex flex-col min-h-screen bg-[#07070f] text-gray-100 overflow-x-hidden">
+      {/* Ambient glow blobs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-40 left-[20%] w-[600px] h-[600px] bg-orange-600/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] right-[10%] w-[500px] h-[500px] bg-orange-500/[0.03] rounded-full blur-[100px]" />
+        <div className="absolute bottom-[10%] left-[30%] w-[400px] h-[400px] bg-orange-700/[0.04] rounded-full blur-[100px]" />
+      </div>
+
+      {/* Header */}
+      <header className="sticky top-0 z-40 h-16 flex items-center justify-between px-6 md:px-16 border-b border-white/[0.06] bg-[#07070f]/70 backdrop-blur-xl">
+        <Link href="/" className="text-sm font-bold tracking-[0.2em] text-white uppercase">
+          STARON
         </Link>
-        <div className="flex items-center gap-4 mr-5">
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            <Link href="#about" className="text-gray-300 transition-colors hover:text-orange-500">
-              About
+        <nav className="hidden md:flex items-center gap-8">
+          {["About", "Projects", "Contact"].map(item => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-xs tracking-wider uppercase font-medium text-gray-500 hover:text-orange-400 transition-colors"
+            >
+              {item}
             </Link>
-            <Link href="#projects" className="text-gray-300 transition-colors hover:text-orange-500">
-              Projects
-            </Link>
-            <Link href="#contact" className="text-gray-300 transition-colors hover:text-orange-500">
-              Contact
-            </Link>
-          </nav>
+          ))}
+        </nav>
+        <div className="flex items-center gap-1">
+          <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" className="rounded-full text-gray-500 hover:text-orange-400 hover:bg-white/5 h-9 w-9">
+              <Github className="h-4 w-4" />
+            </Button>
+          </Link>
+          <Link href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" className="rounded-full text-gray-500 hover:text-orange-400 hover:bg-white/5 h-9 w-9">
+              <X className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </header>
 
       <main className="flex-1">
-        <section id="about" className="py-5 md:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8 order-2 md:order-1">
-                <div className="space-y-4">
-                  <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-                    I get depressed when I don't{" "}
-                    <span className="text-orange-500">move forward</span>.
+        {/* Hero */}
+        <section id="about" className="min-h-[calc(100vh-4rem)] flex items-center py-20">
+          <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div className="space-y-10 order-2 md:order-1">
+                <div className="space-y-6">
+                  <h1 className="text-5xl md:text-[4.5rem] font-black tracking-tight text-white leading-[1.05]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 to-orange-600">
+                      Progress
+                    </span>{" "}
+                    is my hobby.
                   </h1>
-                  <p className="text-xl text-gray-400">
-                    Hello, I'm <span className="text-white font-medium">Krzysztof</span> 👋
-                  </p>
-                  <div className="flex space-x-4 mt-4">
-                    <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="rounded-full text-gray-300 hover:text-orange-500 hover:bg-gray-800"
-                      >
-                        <Github className="h-5 w-5" />
-                        <span className="sr-only">GitHub</span>
-                      </Button>
-                    </Link>
-                    <Link href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="rounded-full text-gray-300 hover:text-orange-500 hover:bg-gray-800"
-                      >
-                        <X className="h-5 w-5" />
-                        <span className="sr-only">X</span>
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
-                  <p>
-                    I'm a builder. I don't believe I'm the best developer in the world, but I believe in{" "}
-                    <span className="text-orange-500 font-medium">relentless progress</span>.
-                  </p>
-
-                  <p>
-                    I wrote my first lines of code in <span className="text-orange-500 font-medium">2018</span>, when I
-                    was 11 years old. Before that, I was always searching for a medium to solve problems, first it was
-                    math, and then coding became exactly that. Since then, I've been learning, building, and most of the
-                    time failing.
-                  </p>
-
-                  <p>Along the way, mentors helped me to find the direction that I'm passionate about.</p>
-                </div>
-
-                <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
-                  <p>
-                    I build SaaS, muscles and strength, optimize my body and mind, and document the process in public.
-                  </p>
-
-                  <p>
-                    I'm especially interested in biohacking, sports, and frontier of technology, and I dream of pushing
-                    humanity forward.
+                  <p className="text-base text-gray-500 font-medium tracking-wide">
+                    TS · Rust · Python · Kubernetes · ML · React · Svelte 
                   </p>
                 </div>
 
-                <p className="text-lg font-medium border-l-4 border-orange-500 pl-4 py-2 bg-orange-950/30 rounded-r text-gray-100">
-                  Every project I ship is another step toward a larger goal: making research and opportunities
-                  accessible to everyone, supporting breakthrough technologies, and helping bring humanity closer to the
-                  stars. I put everything I have into my work - because without the mission, I am nothing.
-                </p>
+                <div className="space-y-4 text-base text-gray-400 leading-relaxed max-w-md">
+                  <p>
+                    I fine-tune LLMs, write Rust, and ship AI products. Right now I'm working at the intersection of client facing product, backend and machine learning {" "}
+                  </p>
+                  <p>
+                    Beyond code: I lift heavy, track everything, and push my body as hard as I push my work.
+                    Obsessed with the frontier of AI and what it means for humanity. Not as a metaphor.
+                  </p>
+                </div>
+
+                <blockquote className="relative pl-5 border-l-2 border-orange-500/50">
+                  <p className="text-gray-400 text-sm leading-relaxed italic">
+                    Every project I ship is another step toward making research and opportunities
+                    accessible to everyone — because without the mission, I am nothing.
+                  </p>
+                </blockquote>
               </div>
 
               <div className="flex justify-center md:justify-end order-1 md:order-2">
-                <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-orange-500/20 shadow-xl shadow-orange-900/20 transition-transform hover:scale-[1.02] duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/20 to-transparent z-10"></div>
-                  <Image src="/images/me-cropped.jpg" alt="Krzysztof" fill className="object-cover" priority />
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-600/25 to-transparent blur-3xl scale-110" />
+                  <div className="relative w-60 h-60 md:w-[360px] md:h-[360px] rounded-full overflow-hidden border border-white/10 ring-4 ring-offset-4 ring-offset-[#07070f] ring-orange-500/15">
+                    <Image src="/images/me-cropped.jpg" alt="Krzysztof" fill className="object-cover" priority />
+                  </div>
                 </div>
               </div>
             </div>
@@ -109,102 +94,113 @@ export default function Portfolio() {
 
         <ProjectsSection />
 
-        <section className="py-20 bg-gray-950 w-screen flex justify-center">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">Proof I train</h2>
-              <p className="text-gray-300 max-w-[600px] text-lg italic">"Maybe thirst-traps bring job offers"</p>
+        {/* Fitness */}
+        <section className="py-24 w-full">
+          <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
+            <div className="mb-16">
+              <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-3">Lifestyle</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">SPORT</h2>
+              <p className="text-gray-500 italic mt-3">I love progress</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {["back.jpg", "front.jpg", "back_right.jpg"].map(photo => (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-16">
+              <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/[0.06]">
+                <Image
+                  src="/images/backflip.gif"
+                  alt="Backflip"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+              {["front.jpg", "strava.jpg", "mountains.jpg"].map(photo => (
                 <div
                   key={photo}
-                  className="group relative aspect-square overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-md transition-all hover:shadow-lg hover:shadow-orange-900/10"
+                  className="group relative aspect-square overflow-hidden rounded-2xl border border-white/[0.06]"
                 >
                   <Image
                     src={`/images/${photo}`}
-                    alt={`Fitness photo ${photo}`}
+                    alt="Fitness photo"
                     fill
-                    className="object-cover transition-transform group-hover:scale-105 duration-500"
+                    className={`object-cover transition-transform duration-700 group-hover:scale-[1.04] ${photo === "strava.jpg" ? "object-bottom" : ""}`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <p className="text-white font-medium">I lift weights</p>
-                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 text-center">
-              <p className="text-gray-300 mb-6 max-w-[600px] mx-auto">
-                Beyond coding, I'm committed to fitness and self-improvement.
-              </p>
-              <div className="mb-4 flex items-center justify-between">
-                <p className="text-gray-300">
-                  Bench: <strong className="text-orange-500">100kg</strong>
-                </p>
-                <div className="relative w-1/2 h-2 bg-gray-700 rounded">
-                  {/* 100 / 100 = 100% */}
-                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "100%" }}></div>
+            <div className="max-w-sm space-y-5">
+              <p className="text-gray-600 text-sm">Beyond coding, I'm committed to fitness and self-improvement.</p>
+              {[
+                { label: "Bench", current: 100, goal: 100 },
+                { label: "Squat", current: 120, goal: 140 },
+                { label: "Deadlift", current: 150, goal: 200 },
+              ].map(({ label, current, goal }) => (
+                <div key={label} className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-400">{label} <span className="text-orange-400 font-semibold">{current}kg</span></span>
+                    <span className="text-gray-600">Goal <span className="text-gray-400 font-medium">{goal}kg</span></span>
+                  </div>
+                  <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-orange-600 to-orange-400 rounded-full transition-all"
+                      style={{ width: `${Math.min((current / goal) * 100, 100)}%` }}
+                    />
+                  </div>
                 </div>
-                <p className="text-gray-300 text-sm">
-                  Goal: <strong className="text-orange-500">100kg</strong>
-                </p>
-              </div>
-              <div className="mb-4 flex items-center justify-between">
-                <p className="text-gray-300">
-                  Squat: <strong className="text-orange-500">110kg</strong>
-                </p>
-                <div className="relative w-1/2 h-2 bg-gray-700 rounded">
-                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "78.57%" }}></div>
-                </div>
-                <p className="text-gray-300 text-sm">
-                  Goal: <strong className="text-orange-500">140kg</strong>
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="py-20 bg-gray-950 w-screen flex justify-center">
-          <div className="container px-4 md:px-6">
-            <div className="max-w-[800px] mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">Get In Touch</h2>
-              <p className="text-gray-300 mb-8">Just say something like "hello", I'll be happy, I love you all.</p>
-
-              <p className="text-gray-300 mb-8">krzysztof@staron.dev</p>
-              <p className="text-gray-300 mb-8">
-                <a href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
-                  @KrzysztofStaron
-                </a>
-              </p>
+        {/* Contact */}
+        <section id="contact" className="py-24 w-full">
+          <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
+            <div className="relative max-w-xl mx-auto text-center rounded-3xl border border-white/[0.06] bg-white/[0.015] p-12 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/[0.06] via-transparent to-transparent pointer-events-none" />
+              <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="relative">
+                <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-4">Contact</p>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white">Get In Touch</h2>
+                <p className="text-gray-500 mb-10">Just say "hello" — I'll be happy. I love you all.</p>
+                <div className="flex flex-col items-center gap-3">
+                  <a
+                    href="mailto:krzysztof@staron.dev"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 hover:bg-orange-500/20 hover:border-orange-500/30 transition-all text-sm font-medium"
+                  >
+                    <Mail className="h-3.5 w-3.5" />
+                    krzysztof@staron.dev
+                  </a>
+                  <a
+                    href="https://x.com/KrzysztofStaron"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-500 hover:text-orange-400 transition-colors text-sm"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                    @KrzysztofStaron
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-gray-800 py-2 bg-gray-950 w-screen flex justify-center">
-        <div className="grid grid-cols-2 gap-10 w-min">
-          <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 rounded-full text-gray-400 hover:text-orange-500 hover:bg-gray-800"
-            >
-              <Github className="h-4 w-4" />
-              <span className="sr-only">GitHub</span>
-            </Button>
-          </Link>
-          <Link href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 rounded-full text-gray-400 hover:text-orange-500 hover:bg-gray-800"
-            >
-              <X className="h-4 w-4" />
-              <span className="sr-only">X</span>
-            </Button>
-          </Link>
+      <footer className="border-t border-white/[0.05] py-8 px-6 md:px-16">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <span className="text-xs text-gray-600 tracking-widest uppercase">Krzysztof Staron</span>
+          <div className="flex items-center gap-1">
+            <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="rounded-full text-gray-600 hover:text-orange-400 hover:bg-white/5 h-8 w-8">
+                <Github className="h-3.5 w-3.5" />
+              </Button>
+            </Link>
+            <Link href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" className="rounded-full text-gray-600 hover:text-orange-400 hover:bg-white/5 h-8 w-8">
+                <X className="h-3.5 w-3.5" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
