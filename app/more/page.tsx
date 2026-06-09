@@ -132,7 +132,7 @@ export default function More() {
               <span className="sr-only">GitHub</span>
             </Button>
           </Link>
-          <Link href="https://x.com/PanzerBread" target="_blank" rel="noopener noreferrer">
+          <Link href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
             <Button
               variant="ghost"
               size="icon"

@@ -52,7 +52,7 @@ export default function Portfolio() {
                         <span className="sr-only">GitHub</span>
                       </Button>
                     </Link>
-                    <Link href="https://x.com/PanzerBread" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
                       <Button
                         variant="ghost"
                         size="icon"
@@ -144,10 +144,11 @@ export default function Portfolio() {
               </p>
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-gray-300">
-                  Bench: <strong className="text-orange-500">87.5kg</strong>
+                  Bench: <strong className="text-orange-500">100kg</strong>
                 </p>
                 <div className="relative w-1/2 h-2 bg-gray-700 rounded">
-                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "87.5%" }}></div>
+                  {/* 100 / 100 = 100% */}
+                  <div className="absolute h-full bg-orange-500 rounded" style={{ width: "100%" }}></div>
                 </div>
                 <p className="text-gray-300 text-sm">
                   Goal: <strong className="text-orange-500">100kg</strong>
@@ -174,10 +175,10 @@ export default function Portfolio() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">Get In Touch</h2>
               <p className="text-gray-300 mb-8">Just say something like "hello", I'll be happy, I love you all.</p>
 
-              <p className="text-gray-300 mb-8">k.staron314@gmail.com</p>
+              <p className="text-gray-300 mb-8">krzysztof@staron.dev</p>
               <p className="text-gray-300 mb-8">
-                <a href="https://x.com/PanzerBread" target="_blank" rel="noopener noreferrer">
-                  @PanzerBread
+                <a href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
+                  @KrzysztofStaron
                 </a>
               </p>
             </div>
@@ -197,7 +198,7 @@ export default function Portfolio() {
               <span className="sr-only">GitHub</span>
             </Button>
           </Link>
-          <Link href="https://x.com/PanzerBread" target="_blank" rel="noopener noreferrer">
+          <Link href="https://x.com/KrzysztofStaron" target="_blank" rel="noopener noreferrer">
             <Button
               variant="ghost"
               size="icon"
