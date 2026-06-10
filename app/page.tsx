@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Github, X, Mail } from "lucide-react";
+import { Github, X, Mail, Linkedin } from "lucide-react";
 import { ProjectsSection } from "@/components/ProjectsSection";
+import { ProjectCard } from "@/components/ProjectCard";
 
 export default function Portfolio() {
   return (
@@ -41,6 +42,11 @@ export default function Portfolio() {
               <X className="h-4 w-4" />
             </Button>
           </Link>
+          <Link href="https://linkedin.com/in/krzysztof-staroń" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" className="rounded-full text-gray-500 hover:text-orange-400 hover:bg-white/5 h-9 w-9">
+              <Linkedin className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </header>
 
@@ -64,18 +70,22 @@ export default function Portfolio() {
 
                 <div className="space-y-4 text-base text-gray-400 leading-relaxed max-w-md">
                   <p>
-                    I fine-tune LLMs, write Rust, and ship AI products. Right now I'm working at the intersection of client facing product, backend and machine learning {" "}
+                    I got my first professional project at 16. Since then I've shipped over a hundred apps and ML projects.
+                    Fine-tuned LLMs with LoRA, built graph-based chat interfaces, written a filesystem in Rust, used Meta's
+                    brain-encoding model to score social media posts by predicted fMRI activation.
                   </p>
                   <p>
-                    Beyond code: I lift heavy, track everything, and push my body as hard as I push my work.
-                    Obsessed with the frontier of AI and what it means for humanity. Not as a metaphor.
+                    I do the weird stuff because the weird stuff is where the interesting problems are.
+                  </p>
+                  <p>
+                    I'm 18. I just finished high school in Poland. I don't have a CS degree and I'm not planning to get one just yet.
+                    What I have instead: five years of building things that work, maniacal sense of urgency, and almost infinite drive for work.
                   </p>
                 </div>
 
                 <blockquote className="relative pl-5 border-l-2 border-orange-500/50">
                   <p className="text-gray-400 text-sm leading-relaxed italic">
-                    Every project I ship is another step toward making research and opportunities
-                    accessible to everyone — because without the mission, I am nothing.
+                    Looking for the right problem to obsess over.
                   </p>
                 </blockquote>
               </div>
@@ -93,6 +103,25 @@ export default function Portfolio() {
         </section>
 
         <ProjectsSection />
+
+        {/* Newest Project */}
+        <section className="py-24 w-full border-t border-white/[0.05]">
+          <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
+            <div className="mb-12">
+              <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-3">Latest</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Newest project</h2>
+            </div>
+            <div className="max-w-xs">
+              <ProjectCard
+                title="Brain-Powered Post Optimizer"
+                description="An agent that uses brain scan data to optimize posts for engagement. Powered by TRIBEv2 + Claude, it iteratively refines text based on predicted neural response strength."
+                technologies={["TRIBEv2", "Claude", "fMRI Data", "Agent"]}
+                image="/images/tribe-agent.jpg"
+                link="https://x.com/KrzysztofStaron/status/2064439321852363108"
+              />
+            </div>
+          </div>
+        </section>
 
         {/* Fitness */}
         <section className="py-24 w-full">
@@ -188,7 +217,7 @@ export default function Portfolio() {
 
       <footer className="border-t border-white/[0.05] py-8 px-6 md:px-16">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <span className="text-xs text-gray-600 tracking-widest uppercase">Krzysztof Staron</span>
+          <span className="text-xs text-gray-600 tracking-widest uppercase">Krzysztof Staroń</span>
           <div className="flex items-center gap-1">
             <Link href="https://github.com/krzysztofstaron" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon" className="rounded-full text-gray-600 hover:text-orange-400 hover:bg-white/5 h-8 w-8">

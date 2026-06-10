@@ -10,20 +10,6 @@ export interface Project {
 
 const projects: Project[] = [
   {
-    title: "AutoSniper",
-    description: "AI car search across Polish portals, smart recommendations delivered to your inbox.",
-    technologies: ["AI/ML", "Web Scraping", "Data Analysis", "Email Integration"],
-    image: "/images/AutoSniper.jpg",
-    link: "https://auto-sniper-mocha.vercel.app/?lang=en",
-  },
-  {
-    title: "Focus Loop",
-    description: "Environment for self-improvement. Curated videos based on your personality.",
-    technologies: ["Recommendation System", "Model Finetuning", "Vector Database"],
-    image: "/images/focus_loop.jpg",
-    link: "https://www.producthunt.com/products/focus-loop",
-  },
-  {
     title: "graphai.one",
     description: "Alternative UX for LLMs, where chat isn't linear.",
     technologies: ["LLM", "Canvas UI", "Tool Calls"],
@@ -31,11 +17,25 @@ const projects: Project[] = [
     link: "https://graphai.one",
   },
   {
-    title: "Gaming Calculator",
-    description: "Arduino-based game console with a custom operating system.",
-    technologies: ["Arduino", "C++", "Operating System"],
-    image: "/images/calc.jpg",
-    link: "https://github.com/KrzysztofStaron/GamingCalculator",
+    title: "PromptCoT",
+    description: "Two LoRA-finetuned Qwen-7B models in an EM loop generating synthetic reasoning data via vLLM.",
+    technologies: ["LoRA", "Qwen-7B", "vLLM", "Synthetic Data"],
+    image: "/images/promptCOT.png",
+    link: "https://github.com/KrzysztofStaron/PromptCoT-implementation",
+  },
+  {
+    title: "Elon Musk AI Companion",
+    description: "Conversational AI companion with real-time voice synthesis and AI-generated visuals.",
+    technologies: ["GPT-4.1", "Fish Audio TTS", "Replicate Imagen"],
+    image: "/images/elon.png",
+    link: "https://github.com/KrzysztofStaron/companions",
+  },
+  {
+    title: "Focus Loop",
+    description: "Environment for self-improvement. Curated videos based on your personality. My first SaaS, and honestly the only reason it's here.",
+    technologies: ["Recommendation System", "Model Finetuning", "Vector Database"],
+    image: "/images/focus_loop.jpg",
+    link: "https://www.producthunt.com/products/focus-loop",
   },
 ];
 
@@ -45,10 +45,8 @@ export function ProjectsSection() {
       <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
         <div className="mb-16">
           <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-3">Work</p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
-            Some projects
-          </h2>
-          <p className="text-gray-500 mt-3 max-w-md">AI/SaaS · Recommendation Systems · LLM UX · Hardware</p>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Some projects</h2>
+          <p className="text-gray-500 mt-3 whitespace-nowrap">Voice AI · Recommendation Systems · LLM UX · Model Training</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -59,7 +57,9 @@ export function ProjectsSection() {
 
         <div className="mt-12">
           <a
-            href="/more"
+            href="https://github.com/krzysztofstaron"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-orange-400 transition-colors group"
           >
             View all projects
