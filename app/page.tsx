@@ -114,16 +114,16 @@ export default function Portfolio() {
               <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-3">Latest</p>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Newest projects</h2>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {newestProjects.map((project) =>
-                project.variant === "handwriting" ? (
-                  <HandwritingProjectCard key={project.id} project={project} />
-                ) : (
-                  <div key={project.id} className="max-w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
+              {newestProjects.map((project) => (
+                <div key={project.id} className="h-full min-h-0">
+                  {project.variant === "handwriting" ? (
+                    <HandwritingProjectCard project={project} />
+                  ) : (
                     <ProjectCard {...project} />
-                  </div>
-                ),
-              )}
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>

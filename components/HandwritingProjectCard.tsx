@@ -215,7 +215,7 @@ export function HandwritingProjectCard({ project }: HandwritingProjectCardProps)
 
   return (
     <>
-      <div className="flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+      <div className="flex flex-col h-full rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
         <button
           type="button"
           onClick={() => setArticleOpen(true)}
@@ -250,7 +250,7 @@ export function HandwritingProjectCard({ project }: HandwritingProjectCardProps)
           </div>
         </button>
 
-        <div className="px-5 pb-5 flex flex-col gap-4">
+        <div className="px-5 pb-5 flex flex-col flex-1 gap-4">
         <div className="flex gap-2">
           <input
             type="text"

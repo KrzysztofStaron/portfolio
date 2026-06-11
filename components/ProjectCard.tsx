@@ -28,7 +28,7 @@ export function ProjectCard(project: Project) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-orange-500/20 hover:bg-white/[0.035] transition-all duration-300 text-left w-full cursor-pointer"
+        className="group flex flex-col h-full rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-orange-500/20 hover:bg-white/[0.035] transition-all duration-300 text-left w-full cursor-pointer"
       >
         <div className="aspect-video w-full overflow-hidden bg-white/5 relative">
           <Image
@@ -59,7 +59,7 @@ export function ProjectCard(project: Project) {
               href={link}
               target="_blank"
               onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-1.5 text-xs text-gray-600 hover:text-orange-400 transition-colors group/link"
+              className="inline-flex items-center gap-1.5 text-xs text-gray-600 hover:text-orange-400 transition-colors group/link mt-auto"
             >
               View project
               <ExternalLink className="h-3 w-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
