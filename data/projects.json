@@ -13,9 +13,9 @@
       "An LSTM based on “Generating Sequences With Recurrent Neural Networks” by Alex Graves.",
       "",
       "At first I trained a model to generate arbitrary text, just to see if the concept even works.",
-      "The main challenge was understanding the math from the paper—it took me a while to wrap my head around how to sample from the density probability of N-Gaussians in 2D space, and how to compute the loss function.",
+      "The main challenge was understanding the math from the paper it took me a while to wrap my head around how to sample from the density probability of N Gaussians in 2D space, and how to compute the loss function.",
       "",
-      "In the second iteration, I added a “soft window”—a layer that predicts N 1D Gaussians to help the network figure out what character is being drawn at each time step. The model kept exploding at first, probably because it was easier for it to just ignore the window entirely, but after clamping the arguments training became stable. After some iterations, it generalized well. Sometimes it still generates nonsense, but to improve it further I’d need my own handwriting dataset."
+      "In the second iteration, I added a “soft window” a layer that predicts N 1D Gaussians to help the network figure out what character is being drawn at each time step. The model kept exploding at first, probably because it was easier for it to just ignore the window entirely, but after clamping the arguments training became stable. After some iterations, it generalized well. Sometimes it still generates nonsense, but to improve it further I’d need my own handwriting dataset."
     ]
   },
   {
@@ -72,9 +72,8 @@
     "image": "/images/elon.png",
     "link": "https://github.com/KrzysztofStaron/companions",
     "article": [
-      "A voice-first AI companion that talks back in real time. GPT-4.1 handles the dialogue; Fish Audio TTS streams speech with low latency; Replicate Imagen generates visuals on the fly to match the conversation.",
-      "The interesting part is stitching three different modalities into one coherent experience — text reasoning, audio output, and image generation all need to stay in sync without feeling sluggish.",
-      "Built as an experiment in multimodal companions: not just a chatbot, but something that feels present. The Elon persona was mostly a stress test for how far you can push real-time voice + vision together."
+      "Writing detailed explanations for 100+ projects is a pain, I'll finish this article some other time. ",
+      "But basically it's an evirment where 3D animated model reacts to your meesages, with animations, changes of background and voice response with voice cloned voice of Elon"
     ]
   },
   {
