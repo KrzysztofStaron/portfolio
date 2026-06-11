@@ -4,16 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { ExternalLink, X } from "lucide-react";
-import type { Project } from "@/lib/projects";
+import type { StoryContent } from "@/lib/story";
 
-interface ProjectArticleModalProps {
-  project: Project | null;
+interface StoryArticleModalProps {
+  story: StoryContent | null;
   onClose: () => void;
 }
 
-export function ProjectArticleModal({ project, onClose }: ProjectArticleModalProps) {
+export function StoryArticleModal({ story, onClose }: StoryArticleModalProps) {
   useEffect(() => {
-    if (!project) return;
+    if (!story) return;
 
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -26,9 +26,11 @@ export function ProjectArticleModal({ project, onClose }: ProjectArticleModalPro
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [project, onClose]);
+  }, [story, onClose]);
 
-  if (!project) return null;
+  if (!story) return null;
+
+  const paragraphs = (story.article ?? [story.description]).filter((p) => p.length > 0);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8">
@@ -41,23 +43,23 @@ export function ProjectArticleModal({ project, onClose }: ProjectArticleModalPro
 
       <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c14] shadow-2xl flex flex-col">
         <div className="relative shrink-0 bg-white/5">
-          {project.imageNatural ? (
+          {story.imageNatural ? (
             <Image
-              src={project.image}
-              alt={project.title}
-              width={project.imageNatural.width}
-              height={project.imageNatural.height}
+              src={story.image}
+              alt={story.title}
+              width={story.imageNatural.width}
+              height={story.imageNatural.height}
               className="w-full h-auto"
-              unoptimized={project.image.endsWith(".gif")}
+              unoptimized={story.image.endsWith(".gif")}
             />
           ) : (
-            <div className="aspect-video relative overflow-hidden">
+            <div className="aspect-square relative overflow-hidden">
               <Image
-                src={project.image}
-                alt={project.title}
+                src={story.image}
+                alt={story.title}
                 fill
-                className="object-cover"
-                unoptimized={project.image.endsWith(".gif")}
+                className={story.imageClassName ?? "object-cover"}
+                unoptimized={story.image.endsWith(".gif")}
               />
             </div>
           )}
@@ -71,33 +73,37 @@ export function ProjectArticleModal({ project, onClose }: ProjectArticleModalPro
         </div>
 
         <div className="overflow-y-auto p-6 md:p-8">
-          <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-2">Project</p>
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-3">{project.title}</h2>
+          <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-2">
+            {story.categoryLabel ?? "Story"}
+          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-3">{story.title}</h2>
 
-          <div className="flex flex-wrap gap-1.5 mb-6">
-            {project.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-gray-400 tracking-wide"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          {story.tags && story.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-6">
+              {story.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-gray-400 tracking-wide"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
 
           <div className="space-y-4 text-sm text-gray-400 leading-relaxed">
-            {(project.article ?? [project.description]).map((paragraph, i) => (
+            {paragraphs.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
           </div>
 
-          {project.link && (
+          {story.link && (
             <Link
-              href={project.link}
+              href={story.link}
               target="_blank"
               className="inline-flex items-center gap-1.5 mt-8 text-sm text-orange-400 hover:text-orange-300 transition-colors"
             >
-              View project
+              {story.linkLabel ?? "View more"}
               <ExternalLink className="h-3.5 w-3.5" />
             </Link>
           )}

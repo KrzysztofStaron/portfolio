@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Project } from "@/lib/projects";
-import { ProjectArticleModal } from "./ProjectArticleModal";
+import { StoryArticleModal } from "./StoryArticleModal";
 
 interface HandwritingProjectCardProps {
   project: Project;
@@ -288,8 +288,22 @@ export function HandwritingProjectCard({ project }: HandwritingProjectCardProps)
         </div>
       </div>
 
-      <ProjectArticleModal
-        project={articleOpen ? project : null}
+      <StoryArticleModal
+        story={
+          articleOpen
+            ? {
+                title: project.title,
+                description: project.description,
+                image: project.image,
+                article: project.article,
+                tags: project.technologies,
+                link: project.link,
+                linkLabel: "View project",
+                categoryLabel: "Project",
+                imageNatural: project.imageNatural,
+              }
+            : null
+        }
         onClose={() => setArticleOpen(false)}
       />
     </>

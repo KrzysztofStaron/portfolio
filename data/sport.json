@@ -1,0 +1,54 @@
+[
+  {
+    "id": "backflip",
+    "title": "First backflip on ground",
+    "description": "Months of progressions — finally landed it on grass.",
+    "image": "/images/backflip.gif",
+    "tags": ["Calisthenics", "Gymnastics"],
+    "imageClassName": "object-cover",
+    "article": [
+      "I wanted to learn a backflip for no practical reason other than it seemed impossible and therefore worth doing. Started with rolls, then assisted flips into a foam pit, then hundreds of attempts on grass where the landing actually hurts.",
+      "The breakthrough wasn't courage — it was timing. I kept opening up too early. Once I learned to commit and tuck harder off the ground, it clicked in an afternoon.",
+      "Still not clean. Still scary every time. But that's the point — proof that showing up and doing the reps on hard things transfers everywhere else."
+    ]
+  },
+  {
+    "id": "physique",
+    "title": "Will code HTML for t-shirts",
+    "description": "What consistent lifting actually looks like.",
+    "image": "/images/front.jpg",
+    "tags": ["Lifting", "Consistency"],
+    "imageClassName": "object-cover",
+    "article": [
+      "I started lifting at 15 with no plan, just a cheap gym membership and YouTube. Early progress was fast because anything works when you've never trained.",
+      "The real work started when progress slowed. Tracking every session, fixing sleep, eating enough protein even when I didn't want to. The photo is just a snapshot — the story is three years of not skipping leg day.",
+      "I don't lift for aesthetics alone. It's the one domain where effort maps cleanly to outcome. That clarity keeps me sane when code problems are ambiguous for weeks."
+    ]
+  },
+  {
+    "id": "strava",
+    "title": "Running for long",
+    "description": "Running data from Strava — the boring work that compounds.",
+    "image": "/images/strava.jpg",
+    "tags": ["Running", "Strava"],
+    "imageClassName": "object-cover object-bottom",
+    "article": [
+      "I used to hate cardio. Treating runs like lifting sessions — progressive overload, tracked pace, deliberate recovery — made it click.",
+      "Strava turned it into a game. Segments, weekly volume, watching aerobic base build over months. None of it is impressive compared to real runners. The point is I do it anyway.",
+      "Cardio is the discipline I least enjoy and most need. It keeps energy high for long coding sessions and stops me from becoming a person who only trains mirror muscles."
+    ]
+  },
+  {
+    "id": "mountains",
+    "title": "Polish Tatry Mountains",
+    "description": "Hiking in the mountains — training that doesn't feel like training.",
+    "image": "/images/mountains.jpg",
+    "tags": ["Hiking", "Outdoors"],
+    "imageClassName": "object-cover",
+    "article": [
+      "Poland has solid mountains close enough for a weekend. I go whenever I need to reset — long elevation, cold air, no screens.",
+      "Hiking is the anti-gym. No reps counted, no PRs, just hours of moving uphill until your legs burn and your head clears. It's the only workout I do purely for how it feels during, not after.",
+      "The mountains remind me that progress isn't always measurable. Sometimes it's just being somewhere hard to reach and coming back down tired and calm."
+    ]
+  }
+]

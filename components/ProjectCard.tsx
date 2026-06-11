@@ -5,11 +5,23 @@ import Link from "next/link";
 import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import type { Project } from "@/lib/projects";
-import { ProjectArticleModal } from "./ProjectArticleModal";
+import { StoryArticleModal } from "./StoryArticleModal";
 
 export function ProjectCard(project: Project) {
   const { title, description, technologies, image, link } = project;
   const [open, setOpen] = useState(false);
+
+  const story = {
+    title,
+    description,
+    image,
+    article: project.article,
+    tags: technologies,
+    link,
+    linkLabel: "View project",
+    categoryLabel: "Project",
+    imageNatural: project.imageNatural,
+  };
 
   return (
     <>
@@ -56,7 +68,7 @@ export function ProjectCard(project: Project) {
         </div>
       </button>
 
-      <ProjectArticleModal project={open ? project : null} onClose={() => setOpen(false)} />
+      <StoryArticleModal story={open ? story : null} onClose={() => setOpen(false)} />
     </>
   );
 }
