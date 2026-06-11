@@ -45,7 +45,7 @@ export function ProjectsSection() {
       <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
         <div className="mb-16">
           <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-3">Work</p>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Some projects</h2>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">More Projects</h2>
           <p className="text-gray-500 mt-3 whitespace-nowrap">Voice AI · Recommendation Systems · LLM UX · Model Training</p>
         </div>
 

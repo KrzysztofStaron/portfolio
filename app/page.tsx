@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Github, X, Mail, Linkedin } from "lucide-react";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ProjectCard } from "@/components/ProjectCard";
+import { HandwritingProjectCard } from "@/components/HandwritingProjectCard";
 
 export default function Portfolio() {
   return (
@@ -102,26 +103,31 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <ProjectsSection />
-
         {/* Newest Project */}
         <section className="py-24 w-full border-t border-white/[0.05]">
           <div className="w-full max-w-6xl mx-auto px-6 md:px-16">
             <div className="mb-12">
               <p className="text-xs text-orange-400 font-medium tracking-widest uppercase mb-3">Latest</p>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Newest project</h2>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Newest projects</h2>
             </div>
-            <div className="max-w-xs">
-              <ProjectCard
-                title="Brain-Powered Post Optimizer"
-                description="An agent that uses brain scan data to optimize posts for engagement. Powered by TRIBEv2 + Claude, it iteratively refines text based on predicted neural response strength."
-                technologies={["TRIBEv2", "Claude", "fMRI Data", "Agent"]}
-                image="/images/tribe-agent.jpg"
-                link="https://x.com/KrzysztofStaron/status/2064439321852363108"
-              />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <HandwritingProjectCard />
+              <div className="max-w-full">
+                <ProjectCard
+                  title="Brain-Powered Post Optimizer"
+                  description="An agent that uses brain scan data to optimize posts for engagement. Powered by TRIBEv2 + Claude, it iteratively refines text based on predicted neural response strength."
+                  technologies={["fMRI Data", "LLM"]}
+                  image="/images/tribe-agent.jpg"
+                  link="https://x.com/KrzysztofStaron/status/2064439321852363108"
+                />
+              </div>
             </div>
           </div>
         </section>
+
+
+        <ProjectsSection />
+
 
         {/* Fitness */}
         <section className="py-24 w-full">
