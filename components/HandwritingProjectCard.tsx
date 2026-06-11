@@ -2,6 +2,12 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { Project } from "@/lib/projects";
+import { ProjectArticleModal } from "./ProjectArticleModal";
+
+interface HandwritingProjectCardProps {
+  project: Project;
+}
 
 const MAX_CHARS = 100;
 
@@ -133,7 +139,7 @@ async function streamHandwriting(
   return { ok: true };
 }
 
-export function HandwritingProjectCard() {
+export function HandwritingProjectCard({ project }: HandwritingProjectCardProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const strokesRef = useRef<Stroke[]>([]);
   const currentStrokeRef = useRef<Stroke>([]);
@@ -143,6 +149,7 @@ export function HandwritingProjectCard() {
   const [text, setText] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [generating, setGenerating] = useState(false);
+  const [articleOpen, setArticleOpen] = useState(false);
 
   function prewarm() {
     if (warmedRef.current) return;
@@ -207,36 +214,43 @@ export function HandwritingProjectCard() {
   }
 
   return (
-    <div className="flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
-      <div className="w-full bg-white">
-        <Image
-          src="/images/handwriting-sample.png"
-          alt="Handwriting synthesis sample"
-          width={1120}
-          height={408}
-          className="w-full h-auto"
-        />
-      </div>
+    <>
+      <div className="flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setArticleOpen(true)}
+          className="text-left hover:bg-white/[0.02] transition-colors cursor-pointer"
+        >
+          <div className="w-full bg-white">
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={project.imageNatural?.width ?? 1120}
+              height={project.imageNatural?.height ?? 408}
+              className="w-full h-auto"
+            />
+          </div>
 
-      <div className="p-5 flex flex-col flex-1 gap-4">
-        <div>
-          <h3 className="text-base font-bold mb-1.5 text-white">Handwriting Synthesis</h3>
-          <p className="text-gray-500 text-sm leading-relaxed">
-            Neural model that generates pen movements stroke by stroke. Type below and watch it write live.
-          </p>
-        </div>
+          <div className="p-5 flex flex-col gap-4">
+            <div>
+              <h3 className="text-base font-bold mb-1.5 text-white">{project.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{project.description}</p>
+            </div>
 
-        <div className="flex flex-wrap gap-1.5">
-          {["Cloud Run", "LSTM", "NumPy"].map((tech) => (
-            <span
-              key={tech}
-              className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-gray-400 tracking-wide"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+            <div className="flex flex-wrap gap-1.5">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-gray-400 tracking-wide"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </button>
 
+        <div className="px-5 pb-5 flex flex-col gap-4">
         <div className="flex gap-2">
           <input
             type="text"
@@ -271,7 +285,13 @@ export function HandwritingProjectCard() {
           height={160}
           className="w-full rounded-xl border border-white/[0.06] bg-[#fafafa]"
         />
+        </div>
       </div>
-    </div>
+
+      <ProjectArticleModal
+        project={articleOpen ? project : null}
+        onClose={() => setArticleOpen(false)}
+      />
+    </>
   );
 }

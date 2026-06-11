@@ -1,0 +1,183 @@
+[
+  {
+    "id": "handwriting-synthesis",
+    "section": "newest",
+    "variant": "handwriting",
+    "title": "Handwriting Synthesis",
+    "description": "Neural model that generates pen movements stroke by stroke. Type below and watch it write live.",
+    "technologies": ["Cloud Run", "LSTM", "NumPy"],
+    "image": "/images/handwriting-sample.png",
+    "link": "https://github.com/KrzysztofStaron/handwriting",
+    "imageNatural": { "width": 1120, "height": 408 },
+    "article": [
+      "An LSTM based on “Generating Sequences With Recurrent Neural Networks” by Alex Graves.",
+      "",
+      "At first I trained a model to generate arbitrary text, just to see if the concept even works.",
+      "The main challenge was understanding the math from the paper—it took me a while to wrap my head around how to sample from the density probability of N-Gaussians in 2D space, and how to compute the loss function.",
+      "",
+      "In the second iteration, I added a “soft window”—a layer that predicts N 1D Gaussians to help the network figure out what character is being drawn at each time step. The model kept exploding at first, probably because it was easier for it to just ignore the window entirely, but after clamping the arguments training became stable. After some iterations, it generalized well. Sometimes it still generates nonsense, but to improve it further I’d need my own handwriting dataset."
+    ]
+  },
+  {
+    "id": "brain-post-optimizer",
+    "section": "newest",
+    "variant": "card",
+    "title": "Brain-Powered Post Optimizer",
+    "description": "An agent that uses brain scan data to optimize posts for engagement. Powered by TRIBEv2 + Claude, it iteratively refines text based on predicted neural response strength.",
+    "technologies": ["fMRI Data", "LLM"],
+    "image": "/images/tribe-agent.jpg",
+    "link": "https://x.com/KrzysztofStaron/status/2064439321852363108",
+    "article": [
+      "This solution uses TRIBEv2, a brain-encoding model, to predict how strongly a piece of text would activate real fMRI recordings.",
+      "Claude runs an iterative loop: draft a post, score it against predicted brain response, refine the wording, repeat.",
+      "The hardest part was getting TRIBEv2 to run in env that isn't a datacenter."
+    ]
+  },
+  {
+    "id": "graphai",
+    "section": "featured",
+    "variant": "card",
+    "title": "graphai.one",
+    "description": "Alternative UX for LLMs, where chat isn't linear.",
+    "technologies": ["LLM", "Canvas UI", "Tool Calls"],
+    "image": "/images/graphai.jpg",
+    "link": "https://graphai.one",
+    "article": [
+      "GraphAI is an alternative UX for LLMs, it means that instead of standard chat window, you get nodes spaning across canvas. ",
+      "While normally chat history is just an array of messages, here relationships between context grew much more complex, allowing for a larger variety of use cases",
+      "I'm also using graph space for things that wouldn't be otherwise possible, by adding special interactive nodes for tools, files, youtube videos etc."
+    ]
+  },
+  {
+    "id": "promptcot",
+    "section": "featured",
+    "variant": "card",
+    "title": "PromptCoT",
+    "description": "Two LoRA-finetuned Qwen-7B models in an EM loop generating synthetic reasoning data via vLLM.",
+    "technologies": ["LoRA", "Qwen-7B", "vLLM", "Synthetic Data"],
+    "image": "/images/promptCOT.png",
+    "link": "https://github.com/KrzysztofStaron/PromptCoT-implementation",
+    "article": [
+      "Chain-of-thought data is expensive to collect at scale. PromptCoT uses an expectation-maximization loop between two LoRA-finetuned Qwen-7B models to bootstrap synthetic reasoning traces.",
+      "it's a direct implementation of the paper, with some changes because of abiguity in the paper"
+    ]
+  },
+  {
+    "id": "elon-companion",
+    "section": "featured",
+    "variant": "card",
+    "title": "Elon Musk AI Companion",
+    "description": "Conversational AI companion with real-time voice synthesis and AI-generated visuals.",
+    "technologies": ["GPT-4.1", "Fish Audio TTS", "Replicate Imagen"],
+    "image": "/images/elon.png",
+    "link": "https://github.com/KrzysztofStaron/companions",
+    "article": [
+      "A voice-first AI companion that talks back in real time. GPT-4.1 handles the dialogue; Fish Audio TTS streams speech with low latency; Replicate Imagen generates visuals on the fly to match the conversation.",
+      "The interesting part is stitching three different modalities into one coherent experience — text reasoning, audio output, and image generation all need to stay in sync without feeling sluggish.",
+      "Built as an experiment in multimodal companions: not just a chatbot, but something that feels present. The Elon persona was mostly a stress test for how far you can push real-time voice + vision together."
+    ]
+  },
+  {
+    "id": "focus-loop",
+    "section": "featured",
+    "variant": "card",
+    "title": "Focus Loop",
+    "description": "Environment for self-improvement. Curated videos based on your personality. My first SaaS, and honestly the only reason it's here.",
+    "technologies": ["Recommendation System", "Model Finetuning", "Vector Database"],
+    "image": "/images/focus_loop.jpg",
+    "link": "https://www.producthunt.com/products/focus-loop",
+    "article": [
+      "It was my first SaaS, it scraped youtube videos and sumamrized them, exposing RAG gor asking questions about those videos, and allowing to qiery youtube video meaning of videos with embedings and not titles"
+    ]
+  },
+  {
+    "id": "beekeeper",
+    "section": "more",
+    "variant": "card",
+    "title": "Beekeeper",
+    "description": "Cheating tool for Wocabee",
+    "technologies": ["Puppeteer", "Google Cloud Run", "SEO"],
+    "image": "/images/beekeeper.jpg",
+    "link": "https://wocabee-bot-beta.vercel.app/"
+  },
+  {
+    "id": "teachers-voting",
+    "section": "more",
+    "variant": "card",
+    "title": "Teacher's voting",
+    "description": "Platform for giving reviews to teachers, built it to promote my cheating tool",
+    "technologies": ["Toast", "Firestore", "Lead Magnet"],
+    "image": "/images/voting.png",
+    "link": "https://lo-strzelin.vercel.app/"
+  },
+  {
+    "id": "algo-visualizer",
+    "section": "more",
+    "variant": "card",
+    "title": "Algo animation engine",
+    "description": "Animation engine for algorithms and leetcode with built-in editor",
+    "technologies": ["syntax highlighting", "animation", "code editing"],
+    "image": "/images/visualizer.gif",
+    "link": "https://github.com/KrzysztofStaron/algo-visualiser"
+  },
+  {
+    "id": "you-are-alive",
+    "section": "more",
+    "variant": "card",
+    "title": "You are alive",
+    "description": "Platform for sharing reflections",
+    "technologies": ["Next.js"],
+    "image": "/images/alive.png",
+    "link": "https://you-are-alive.vercel.app/"
+  },
+  {
+    "id": "communicator",
+    "section": "more",
+    "variant": "card",
+    "title": "Communicator",
+    "description": "Chatapp with themes and dms",
+    "technologies": ["Realtime data", "Websockets"],
+    "image": "/images/communication.jpg",
+    "link": "https://communicator-app.vercel.app/"
+  },
+  {
+    "id": "thrive-pages",
+    "section": "more",
+    "variant": "card",
+    "title": "Thrive Pages",
+    "description": "Daily reflections, nofap tracker, and todo list",
+    "technologies": ["Firestore"],
+    "image": "/images/thrive_pages.png",
+    "link": "https://thrive-pages.vercel.app/"
+  },
+  {
+    "id": "qr-code-manager",
+    "section": "more",
+    "variant": "card",
+    "title": "QR code manager",
+    "description": "QR code manager",
+    "technologies": ["Firebase", "Api"],
+    "image": "/placeholder.svg?height=400&width=600",
+    "link": "https://qrcode-app-topaz.vercel.app/"
+  },
+  {
+    "id": "windowed-todo",
+    "section": "more",
+    "variant": "card",
+    "title": "Windowed todo app",
+    "description": "Todo app built with custom window manager",
+    "technologies": ["Redux"],
+    "image": "/placeholder.svg?height=400&width=600",
+    "link": "https://windowed-todo-app.vercel.app/"
+  },
+  {
+    "id": "way-to-home",
+    "section": "more",
+    "variant": "card",
+    "title": "Way to Home",
+    "description": "Game I made when I was 13",
+    "technologies": ["C#", "Unity"],
+    "image": "/placeholder.svg?height=400&width=600",
+    "link": "https://github.com/KrzysztofStaron/WayToHome"
+  }
+]

@@ -5,8 +5,11 @@ import { Github, X, Mail, Linkedin } from "lucide-react";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ProjectCard } from "@/components/ProjectCard";
 import { HandwritingProjectCard } from "@/components/HandwritingProjectCard";
+import { getProjectsBySection } from "@/lib/projects";
 
 export default function Portfolio() {
+  const newestProjects = getProjectsBySection("newest");
+
   return (
     <div className="flex flex-col min-h-screen bg-[#07070f] text-gray-100 overflow-x-hidden">
       {/* Ambient glow blobs */}
@@ -111,16 +114,15 @@ export default function Portfolio() {
               <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">Newest projects</h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <HandwritingProjectCard />
-              <div className="max-w-full">
-                <ProjectCard
-                  title="Brain-Powered Post Optimizer"
-                  description="An agent that uses brain scan data to optimize posts for engagement. Powered by TRIBEv2 + Claude, it iteratively refines text based on predicted neural response strength."
-                  technologies={["fMRI Data", "LLM"]}
-                  image="/images/tribe-agent.jpg"
-                  link="https://x.com/KrzysztofStaron/status/2064439321852363108"
-                />
-              </div>
+              {newestProjects.map((project) =>
+                project.variant === "handwriting" ? (
+                  <HandwritingProjectCard key={project.id} project={project} />
+                ) : (
+                  <div key={project.id} className="max-w-full">
+                    <ProjectCard {...project} />
+                  </div>
+                ),
+              )}
             </div>
           </div>
         </section>

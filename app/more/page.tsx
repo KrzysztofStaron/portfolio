@@ -1,76 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github, X, Download } from "lucide-react";
-import { Project } from "@/components/ProjectsSection";
 import { ProjectCard } from "@/components/ProjectCard";
-
-const projects: Project[] = [
-  {
-    title: "Beekeeper",
-    description: "Cheating tool for Wocabee",
-    technologies: ["Puppeteer", "Google Cloud Run", "SEO"],
-    image: "/images/beekeeper.jpg",
-    link: "https://wocabee-bot-beta.vercel.app/",
-  },
-  {
-    title: "Teacher's voting",
-    description: "Platform for giving reviews to teachers, built it to promote my cheating tool",
-    technologies: ["Toast", "Firestore", "Lead Magnet"],
-    image: "/images/voting.png",
-    link: "https://lo-strzelin.vercel.app/",
-  },
-  {
-    title: "Algo animation engine",
-    description: "Animation engine for algorithms and leetcode with built-in editor",
-    technologies: ["syntax highlighting", "animation", "code editing"],
-    image: "/images/visualizer.gif",
-    link: "https://github.com/KrzysztofStaron/algo-visualiser",
-  },
-  {
-    title: "You are alive",
-    description: "Platform for sharing reflections",
-    technologies: ["Next.js"],
-    image: "/images/alive.png",
-    link: "https://you-are-alive.vercel.app/",
-  },
-  {
-    title: "Communicator",
-    description: "Chatapp with themes and dms",
-    technologies: ["Realtime data", "Websockets"],
-    image: "/images/communication.jpg",
-    link: "https://communicator-app.vercel.app/",
-  },
-  {
-    title: "Thrive Pages",
-    description: "Daily reflections, nofap tracker, and todo list",
-    technologies: ["Firestore"],
-    image: "/images/thrive_pages.png",
-    link: "https://thrive-pages.vercel.app/",
-  },
-  {
-    title: "QR code manager",
-    description: "QR code manager",
-    technologies: ["Firebase", "Api"],
-    image: "/placeholder.svg?height=400&width=600",
-    link: "https://qrcode-app-topaz.vercel.app/",
-  },
-  {
-    title: "Windowed todo app",
-    description: "Todo app built with custom window manager",
-    technologies: ["Redux"],
-    image: "/placeholder.svg?height=400&width=600",
-    link: "https://windowed-todo-app.vercel.app/",
-  },
-  {
-    title: "Way to Home",
-    description: "Game I made when I was 13",
-    technologies: ["C#", "Unity"],
-    image: "/placeholder.svg?height=400&width=600",
-    link: "https://github.com/KrzysztofStaron/WayToHome",
-  },
-];
+import { getProjectsBySection } from "@/lib/projects";
 
 export default function More() {
+  const projects = getProjectsBySection("more");
   return (
     <div className="flex flex-col bg-gray-950 text-gray-100">
       <header className="sticky h-16 top-0 flex justify-between z-40 w-screen border-b border-gray-800 bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-gray-950/60">
@@ -98,8 +33,8 @@ export default function More() {
 
       <section id="projects" className="py-20 bg-gray-900 w-screen flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+          {projects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       </section>
