@@ -187,7 +187,7 @@ export function HandwritingProjectCard({ project }: HandwritingProjectCardProps)
   }, []);
 
   async function handleGenerate() {
-    const trimmed = text.trim() + ".";
+    const trimmed = text.trim() + " ";
 
     if (!trimmed) {
       setError("Enter some text first");
